@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+             http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+
+    <!-- Welcome File List: What file to load when visiting the root URL -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file> <!-- Default page to load -->
+    </welcome-file-list>
+
+    <!-- Servlet for User Login -->
+    <servlet>
+        <servlet-name>loginController</servlet-name>
+        <servlet-class>com.healthcare.controllers.LoginController</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!-- Servlet Mapping for Login -->
+    <servlet-mapping>
+        <servlet-name>loginController</servlet-name>
+        <url-pattern>/login</url-pattern> <!-- Accessed at /login -->
+    </servlet-mapping>
+
+    <!-- Servlet for User Registration -->
+    <servlet>
+        <servlet-name>registerController</servlet-name>
+        <servlet-class>com.healthcare.controllers.RegisterController</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+
+    <!-- Servlet Mapping for Registration -->
+    <servlet-mapping>
+        <servlet-name>registerController</servlet-name>
+        <url-pattern>/register</url-pattern> <!-- Accessed at /register -->
+    </servlet-mapping>
+
+    <!-- Servlet for User Dashboard or Main page -->
+    <servlet>
+        <servlet-name>dashboardController</servlet-name>
+        <servlet-class>com.healthcare.controllers.DashboardController</servlet-class>
+        <load-on-startup>3</load-on-startup>
+    </servlet>
+
+    <!-- Servlet Mapping for Dashboard -->
+    <servlet-mapping>
+        <servlet-name>dashboardController</servlet-name>
+        <url-pattern>/dashboard</url-pattern> <!-- Accessed at /dashboard -->
+    </servlet-mapping>
+
+    <!-- Error Page Handling -->
+    <error-page>
+        <error-code>404</error-code> <!-- Page not found error -->
+        <location>/error404.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code> <!-- Internal Server Error -->
+        <location>/error500.jsp</location>
+    </error-page>
+
+</web-app>
